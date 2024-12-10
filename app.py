@@ -1,5 +1,6 @@
 from flask import Flask, render_template
 from flask_socketio import SocketIO, send
+import os
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '83fbefaebddbfa5c6230efaaf3762e27f3f4c02751bbc2c0c9ce3aa1011695cd'
@@ -15,4 +16,8 @@ def handle_message(msg):
     send(f"Server: {msg}", broadcast=True)  # Echo back the message to all clients
 
 if __name__ == '__main__':
-    app.run()
+    if __name__ == '__main__':
+        # Use the PORT environment variable assigned by Render
+        port = int(os.environ.get('PORT', 5000))  # Default to 5000 for local development
+        socketio.run(app, host='0.0.0.0', port=port)
+
