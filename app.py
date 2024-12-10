@@ -4,7 +4,7 @@ import os
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = '83fbefaebddbfa5c6230efaaf3762e27f3f4c02751bbc2c0c9ce3aa1011695cd'
-socketio = SocketIO(app)
+socketio = SocketIO(app, async_mode='eventlet')
 
 @app.route('/')
 def index():
