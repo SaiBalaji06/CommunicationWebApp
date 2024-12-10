@@ -17,7 +17,5 @@ def handle_message(msg):
 
 if __name__ == '__main__':
     if __name__ == '__main__':
-        # Use the PORT environment variable assigned by Render
-        port = int(os.environ.get('PORT', 5000))  # Default to 5000 for local development
-        socketio.run(app, host='0.0.0.0', port=port)
+        socketio.run(app)
 
