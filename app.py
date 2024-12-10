@@ -15,4 +15,4 @@ def handle_message(msg):
     send(f"Server: {msg}", broadcast=True)  # Echo back the message to all clients
 
 if __name__ == '__main__':
-    socketio.run(app)
+    app.run()
